@@ -1,0 +1,69 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  outline: none;
+  border: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  font-size: 62.5%; //1rem - 10px; 10px/16px = 62.5%
+
+  @include respond(big-desktop) {
+    font-size: 75%;
+  }
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+  @include respond(tab-port) {
+    font-size: 50%;
+  } //1rem = 8px; 8px/16px = 50%
+}
+
+html {
+  --primaryTextColor: #8D065C;
+  --primaryBackgroundColor: #fff;
+
+  --secondaryTextColor: #000000;
+  --secondaryBackgroundColor: #21bf73;
+
+  --tertiartyTextColor: #0F0202;
+  --tertiaryBackgroundColor: #fd5e53;
+
+  --quartenaryTextColor: #042C8B;
+  --quarternaryBackgroundColor: #b0eacd;
+}
+
+html.dark {
+  --primaryTextColor: #f997d3;
+  --primaryBackgroundColor: #121212;
+  --secondaryTextColor: #F56CBF;
+  --secondaryBackgroundColor: #000000;
+}
+
+body {
+  box-sizing: border-box;
+  background-color: var(--primaryBackgroundColor);
+  color: var(--primaryTextColor);
+}
+
+::selection {
+  background-color: greenyellow;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
