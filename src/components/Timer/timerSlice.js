@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const timerSlice = createSlice({
   name: 'timer',
   initialState: {
-    activeTimer: "pomodoro",  
+    activeTimer: "shortBreak",  
     pomodoro: 25,
     shortBreak: 5,
     longBreak: 15
@@ -16,6 +16,7 @@ export const timerSlice = createSlice({
         state[action.payload.type] = action.payload.time;
     },
   },
+
 });
 
 export const { setActiveTimer, setTime } = timerSlice.actions;

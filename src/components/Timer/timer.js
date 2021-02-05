@@ -1,21 +1,28 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
 import { selectTimer } from "./timerSlice";
 
-const Timer = (props) => {
+const Timer = () => {
   // get State from store
   const myState = useSelector(selectTimer);
   // and the initial time for the selected timer (pomodoro | shortBreak | longBreak)
-  const initialMinute = myState[myState.activeTimer];
+  const initialTime = myState[myState.activeTimer];
 
-  const [minutes, setMinutes] = useState(initialMinute);
+  const [minutes, setMinutes] = useState(initialTime);
   const [seconds, setSeconds] = useState(0);
-  const [IsTimerOn, setIsTimerOn] = useState(false);
+
+  //check if timer should start
+  const [isTimerOn, setIsTimerOn] = useState(false);
 
   useEffect(() => {
-    if (IsTimerOn) {
+    setMinutes(initialTime);
+    setSeconds(0);
+    setIsTimerOn(false);
+  }, [initialTime]);
+
+  useEffect(() => {
+    if (isTimerOn) {
       let myInterval = setInterval(() => {
         if (seconds > 0) {
           setSeconds(seconds - 1);
@@ -44,12 +51,13 @@ const Timer = (props) => {
           {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
         </h1>
       )}
+
       <button
         onClick={() => {
-          setIsTimerOn(!IsTimerOn);
+          setIsTimerOn(!isTimerOn);
         }}
       >
-        START
+        {isTimerOn ? "PAUSE" : "START"}
       </button>
     </div>
   );

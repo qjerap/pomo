@@ -4,7 +4,7 @@ import Clock from "./timer";
 const Timer = () => {
   return(
   <div>
-    <Clock initialMinute={25} initialSeconds={50}/>
+    <Clock/>
   </div>)
 };
 
