@@ -1,7 +1,6 @@
 @import "../abstracts/variables";
 @import "../abstracts/mixins";
 
-
 *,
 *::after,
 *::before {
@@ -30,26 +29,23 @@ html {
   } //1rem = 8px; 8px/16px = 50%
 }
 
-html {
-  --primaryTextColor: #8D065C;
-  --primaryBackgroundColor: #fff;
+// html {
+//   --primaryTextColor: #8d065c;
+//   --primaryBackgroundColor: #fff;
+//   --secondaryTextColor: #000000;
+//   --secondaryBackgroundColor: #21bf73;
+//   --tertiartyTextColor: #0f0202;
+//   --tertiaryBackgroundColor: #fd5e53;
+//   --quartenaryTextColor: #042c8b;
+//   --quarternaryBackgroundColor: #b0eacd;
+// }
 
-  --secondaryTextColor: #000000;
-  --secondaryBackgroundColor: #21bf73;
-
-  --tertiartyTextColor: #0F0202;
-  --tertiaryBackgroundColor: #fd5e53;
-
-  --quartenaryTextColor: #042C8B;
-  --quarternaryBackgroundColor: #b0eacd;
-}
-
-html.dark {
-  --primaryTextColor: #f997d3;
-  --primaryBackgroundColor: #121212;
-  --secondaryTextColor: #F56CBF;
-  --secondaryBackgroundColor: #000000;
-}
+// html.dark {
+//   --primaryTextColor: #f997d3;
+//   --primaryBackgroundColor: #121212;
+//   --secondaryTextColor: #f56cbf;
+//   --secondaryBackgroundColor: #000000;
+// }
 
 body {
   box-sizing: border-box;
@@ -65,5 +61,3 @@ a {
   text-decoration: none;
   color: inherit;
 }
-
-

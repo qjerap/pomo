@@ -1,26 +1,27 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 export const timerSlice = createSlice({
-  name: 'timer',
+  name: "timer",
   initialState: {
-    activeTimer: "shortBreak",  
+    activeTimer: "shortBreak",
     pomodoro: 25,
     shortBreak: 5,
-    longBreak: 15
+    longBreak: 15,
   },
   reducers: {
     setActiveTimer: (state, action) => {
       state.activeTimer = action.payload;
     },
     setTime: (state, action) => {
-        state[action.payload.type] = action.payload.time;
+      state.pomodoro = action.payload.pomodoro;
+      state.shortBreak = action.payload.shortBreak;
+      state.longBreak = action.payload.longBreak;
     },
   },
-
 });
 
 export const { setActiveTimer, setTime } = timerSlice.actions;
 
-export const selectTimer = state => state.timer;
+export const selectTimer = (state) => state.timer;
 
 export default timerSlice.reducer;

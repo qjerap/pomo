@@ -1,13 +1,17 @@
 import React from 'react';
-import { Counter } from './features/counter/Counter';
 import Timer from "./components/Timer";
 import TimerSelector from "./components/TimerSelector";
+import TimerSettings from "./components/TimerSettings";
+
+import Variables from "./styles/Variables.module.scss";
+
 
 function App() {
   return (
-    <div>
+    <div className={Variables.colorRed}>
         <TimerSelector />
         <Timer />
+        <TimerSettings />
     </div>
   );
 }

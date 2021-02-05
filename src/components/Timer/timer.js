@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectTimer } from "./timerSlice";
+import { selectTimer } from "../../features/timer/timerSlice";
 
 const Timer = () => {
   // get State from store
