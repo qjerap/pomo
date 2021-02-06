@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 export const timerSlice = createSlice({
   name: "timer",
   initialState: {
-    activeTimer: "shortBreak",
+    color: "colorRed",
+    activeTimer: "pomodoro",
     pomodoro: 25,
     shortBreak: 5,
     longBreak: 15,
@@ -12,15 +13,16 @@ export const timerSlice = createSlice({
     setActiveTimer: (state, action) => {
       state.activeTimer = action.payload;
     },
-    setTime: (state, action) => {
+    setSettings: (state, action) => {
       state.pomodoro = action.payload.pomodoro;
       state.shortBreak = action.payload.shortBreak;
       state.longBreak = action.payload.longBreak;
+      state.color = action.payload.color;
     },
   },
 });
 
-export const { setActiveTimer, setTime } = timerSlice.actions;
+export const { setActiveTimer, setSettings } = timerSlice.actions;
 
 export const selectTimer = (state) => state.timer;
 

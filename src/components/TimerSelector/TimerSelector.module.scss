@@ -1,4 +1,24 @@
-.btn {
-    color: var(--colorPrimary);
+@import "../../styles/abstracts/variables";
+
+.timerSelector {
+  margin-top: 5.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 37.3rem;
+  height: 63px;
+  background-color: $colorBgSecondary;
+  border-radius: 3rem;
 }
 
+.btn {
+  cursor: pointer;
+  background-color: var(--colorPrimary);
+  color: $colorBgPrimary;
+  font-family: "Kumbh Sans", sans-serif;
+  font-weight: bold;
+  width: 120px;
+  height: 80%;
+  border-radius: 30px;
+  margin: 0 1rem;
+}

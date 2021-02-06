@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setTime } from "../../features/timer/timerSlice";
+import { setSettings } from "../../features/timer/timerSlice";
 
 const TimerSettings = () => {
-  const dispatch = useDispatch();  
+  const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [timeValue, setTimeValue] = useState({
     pomodoro: 25,
     shortBreak: 5,
     longBreak: 15,
   });
+  const [color, setColor] = useState("colorBlue");
 
   const handleNewTimeValue = (e) => {
     setTimeValue({
@@ -19,17 +20,22 @@ const TimerSettings = () => {
   };
 
   const handleDispatch = () => {
-    dispatch(setTime(
-        {
-            pomodoro: timeValue.pomodoro,
-            shortBreak: timeValue.shortBreak,
-            longBreak: timeValue.longBreak
-        }
-    ))
-  }
+    dispatch(
+      setSettings({
+        pomodoro: timeValue.pomodoro,
+        shortBreak: timeValue.shortBreak,
+        longBreak: timeValue.longBreak,
+        color: color,
+      })
+    );
+  };
+
+
 
   return (
-    <React.Fragment>
+    <div>
+
+
       <button
         onClick={() => {
           setIsModalOpen(true);
@@ -39,7 +45,7 @@ const TimerSettings = () => {
       </button>
 
       {isModalOpen && (
-        <div>
+        <div id="modal">
           <div>
             <h2>settings</h2>
             <div>x</div>
@@ -80,16 +86,38 @@ const TimerSettings = () => {
               </div>
             </form>
           </div>
+
           <div>
             <h3>font</h3>
           </div>
+
           <div>
             <h3>color</h3>
+            <form
+              onChange={(e) => {
+                setColor(e.target.value);
+              }}
+            >
+              <input type="radio" name="color" id="colorRed" value="colorRed" />
+              <input
+                type="radio"
+                name="color"
+                id="colorBlue"
+                value="colorBlue"
+              />
+              <input
+                type="radio"
+                name="color"
+                id="colorPurple"
+                value="colorPurple"
+              />
+            </form>
           </div>
+
           <button onClick={handleDispatch}>apply</button>
         </div>
       )}
-    </React.Fragment>
+    </div>
   );
 };
 

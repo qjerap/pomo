@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { setActiveTimer } from "../../features/timer/timerSlice";
-
 import style from "./TimerSelector.module.scss";
 
 const TimerSelector = () => {
@@ -14,7 +13,7 @@ const TimerSelector = () => {
   };
 
   return (
-    <div>
+    <div className={style.timerSelector}>
       <button className={style.btn} onClick={setSelector} data-info="pomodoro">
         pomodoro
       </button>

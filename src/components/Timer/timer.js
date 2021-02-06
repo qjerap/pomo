@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectTimer } from "../../features/timer/timerSlice";
+import style from "./Timer.module.scss";
 
 const Timer = () => {
   // get State from store
@@ -14,6 +15,25 @@ const Timer = () => {
 
   //check if timer should start
   const [isTimerOn, setIsTimerOn] = useState(false);
+
+  // PROGRESS STATE
+  const [progress, setProgress] = useState(100);
+  // GET TOTAL TIME of ACTUAL TIMER <--------------------------------------------------####
+  const x = myState.activeTimer;
+  const totalTime = myState[x] * 60;
+  console.log("test", totalTime);
+  const time = minutes * 60 + seconds;
+  // console.log(minutes * 60 + seconds)
+  const percent = Math.round(((totalTime - time) / time) * 100 * 10) / 10;
+  console.log(100 - percent);
+  // console.log((time - totalTime) / totalTime * 100);
+
+  // PROGRESS CIRCLE
+  const radius = 220;
+  const stroke = 10;
+  const normalizedRadius = radius - stroke * 2;
+  const circumference = normalizedRadius * 2 * Math.PI;
+  const strokeDashoffset = circumference - (progress / 100) * circumference;
 
   useEffect(() => {
     setMinutes(initialTime);
@@ -35,6 +55,7 @@ const Timer = () => {
             setSeconds(59);
           }
         }
+        setProgress(100 - percent);
       }, 1000);
 
       return () => {
@@ -44,15 +65,35 @@ const Timer = () => {
   });
 
   return (
-    <div>
-      {minutes === 0 && seconds === 0 ? null : (
-        <h1>
-          {" "}
-          {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
-        </h1>
-      )}
+    <div className={style.timer}>
+      <div className={style.background}></div>
+      <div className={style.clock}>
+        {minutes === 0 && seconds === 0 ? null : (
+          <div>
+            {" "}
+            {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+          </div>
+        )}
+      </div>
+
+      <div className={style.progressRing}>
+        <svg height={radius * 2} width={radius * 2}>
+          <circle
+            stroke="#f87070"
+            fill="transparent"
+            strokeWidth={stroke}
+            strokeDasharray={circumference + " " + circumference}
+            style={{ strokeDashoffset }}
+            stroke-width={stroke}
+            r={normalizedRadius}
+            cx={radius}
+            cy={radius}
+          />
+        </svg>
+      </div>
 
       <button
+        className={style.btn}
         onClick={() => {
           setIsTimerOn(!isTimerOn);
         }}
