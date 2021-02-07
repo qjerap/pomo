@@ -9,7 +9,7 @@ function App() {
   const color = useSelector((state) => state.timer.color);
 
   return (
-    <div id="pomodoro" className={style[color]}>
+    <div id="pomodoroApp" className={style[color]}>
       <h1>pomodoro</h1>
       <TimerSelector />
       <Timer />

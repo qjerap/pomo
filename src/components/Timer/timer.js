@@ -18,13 +18,12 @@ const Timer = () => {
 
   // PROGRESS STATE
   const [progress, setProgress] = useState(100);
+  console.log(progress)
   // GET TOTAL TIME of ACTUAL TIMER <--------------------------------------------------####
-  const x = myState.activeTimer;
-  const totalTime = myState[x] * 60;
-  console.log("test", totalTime);
+  const totalTime = initialTime * 60;
   const time = minutes * 60 + seconds;
   // console.log(minutes * 60 + seconds)
-  const percent = Math.round(((totalTime - time) / time) * 100 * 10) / 10;
+  const percent = ((totalTime - time) / time) * 100;
   console.log(100 - percent);
   // console.log((time - totalTime) / totalTime * 100);
 
@@ -39,6 +38,7 @@ const Timer = () => {
     setMinutes(initialTime);
     setSeconds(0);
     setIsTimerOn(false);
+    setProgress(100)
   }, [initialTime]);
 
   useEffect(() => {
@@ -55,7 +55,7 @@ const Timer = () => {
             setSeconds(59);
           }
         }
-        setProgress(100 - percent);
+        setProgress(300 - percent);
       }, 1000);
 
       return () => {

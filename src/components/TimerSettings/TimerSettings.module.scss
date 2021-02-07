@@ -1,0 +1,128 @@
+@import "../../styles/abstracts/variables";
+
+.icon {
+  background-color: $colorBgPrimary;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.icon:hover {
+  transform: rotate(45deg);
+}
+
+//MODAL
+
+.close {
+  cursor: pointer;
+  transition: transform 0.1s;
+
+  &:hover {
+    transform: scale(1.25);
+  }
+}
+
+.modalContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  position: relative;
+  width: 54rem;
+  height: 49rem;
+  //   overflow: hidden;
+  background-color: $colorWhite;
+  border-radius: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.settingRow {
+  width: 80%;
+  min-height: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+
+  //TITLE
+  &:first-child {
+    width: 100%;
+    height: 10rem;
+    padding: 0 5%;
+    border-bottom: 1px solid $colorLightGrey;
+  }
+
+  //TIME
+  &:nth-child(2) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    form {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+
+      div {
+        width: 12rem;
+
+        label {
+          color: $colorBgPrimary;
+          font-weight: bold;
+        }
+
+        input {
+          background-color: $colorLightGrey;
+          border-radius: 0.5rem;
+          padding: 1rem;
+          width: 100%;
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+
+  //FONT
+  &:nth-child(3) {
+    border-bottom: 1px solid $colorLightGrey;
+    border-top: 1px solid $colorLightGrey;
+    height: 10rem;
+  }
+
+  h2,
+  h3 {
+    font-weight: bold;
+    padding: 1rem 0;
+  }
+
+  h2 {
+    font-size: 2.8rem;
+    text-transform: capitalize;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+  }
+}
+
+.btnApply {
+  position: absolute !important;
+  bottom: 0;
+  color: $colorWhite;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  width: 14rem;
+  height: 5.3rem;
+  transform: translate(0, 50%);
+}
