@@ -41,7 +41,11 @@ const Modal = (props) => {
       <div className={style.modal} id="modal">
         <div className={`${style.settingRow}`}>
           <h2>settings</h2>
-          <IconClose onClick={props.handleModal} className={style.close} id="iconClose"/>
+          <IconClose
+            onClick={props.handleModal}
+            className={style.close}
+            id="iconClose"
+          />
         </div>
 
         <div className={`${style.settingRow}`}>
@@ -82,37 +86,118 @@ const Modal = (props) => {
 
         <div className={`${style.settingRow}`}>
           <h3>font</h3>
-          <form>
-            <input type="radio" name="color" id="colorRed" value="colorRed" />
-            <input type="radio" name="color" id="colorBlue" value="colorBlue" />
-            <input
-              type="radio"
-              name="color"
-              id="colorPurple"
-              value="colorPurple"
-            />
+          <form
+            className={style.radioForm}
+            onChange={(e) => {
+              setColor(e.target.value);
+            }}
+          >
+            <label className={style.radio}>
+              <span className={style.radioInput}>
+                <input
+                  type="radio"
+                  name="color"
+                  id="colorRed"
+                  value="colorRed"
+                />
+                <span
+                  style={{ backgroundColor: "#f87070" }}
+                  className={style.radioControl}
+                ></span>
+              </span>
+            </label>
+
+            <label className={style.radio}>
+              <span className={style.radioInput}>
+                <input
+                  type="radio"
+                  name="color"
+                  id="colorBlue"
+                  value="colorBlue"
+                />
+                <span
+                  style={{ backgroundColor: "#70f3f8" }}
+                  className={style.radioControl}
+                ></span>
+              </span>
+            </label>
+            <label className={style.radio}>
+              <span className={style.radioInput}>
+                <input
+                  type="radio"
+                  name="color"
+                  id="colorPurple"
+                  value="colorPurple"
+                />
+                <span
+                  style={{ backgroundColor: "#d881f8" }}
+                  className={style.radioControl}
+                ></span>
+              </span>
+            </label>
           </form>
         </div>
 
         <div className={`${style.settingRow}`}>
           <h3>color</h3>
           <form
+            className={style.radioForm}
             onChange={(e) => {
               setColor(e.target.value);
             }}
           >
-            <input type="radio" name="color" id="colorRed" value="colorRed" />
-            <input type="radio" name="color" id="colorBlue" value="colorBlue" />
-            <input
-              type="radio"
-              name="color"
-              id="colorPurple"
-              value="colorPurple"
-            />
+            <label className={style.radio}>
+              <span className={style.radioInput}>
+                <input
+                  type="radio"
+                  name="color"
+                  id="colorRed"
+                  value="colorRed"
+                />
+                <span
+                  style={{ backgroundColor: "#f87070" }}
+                  className={style.radioControl}
+                ></span>
+              </span>
+            </label>
+
+            <label className={style.radio}>
+              <span className={style.radioInput}>
+                <input
+                  type="radio"
+                  name="color"
+                  id="colorBlue"
+                  value="colorBlue"
+                />
+                <span
+                  style={{ backgroundColor: "#70f3f8" }}
+                  className={style.radioControl}
+                ></span>
+              </span>
+            </label>
+            <label className={style.radio}>
+              <span className={style.radioInput}>
+                <input
+                  type="radio"
+                  name="color"
+                  id="colorPurple"
+                  value="colorPurple"
+                />
+                <span
+                  style={{ backgroundColor: "#d881f8" }}
+                  className={style.radioControl}
+                ></span>
+              </span>
+            </label>
           </form>
         </div>
 
-        <button className={`${style2.btn}  ${style.btnApply}`} onClick={handleDispatch}>apply</button>
+        <button
+          className={`${style2.btn}  ${style.btnApply}`}
+          onClick={handleDispatch}
+        >
+          apply
+        </button>
       </div>
     </div>
   );

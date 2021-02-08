@@ -18,7 +18,7 @@ const Timer = () => {
 
   // PROGRESS STATE
   const [progress, setProgress] = useState(100);
-  console.log(progress)
+  console.log(progress);
   // GET TOTAL TIME of ACTUAL TIMER <--------------------------------------------------####
   const totalTime = initialTime * 60;
   const time = minutes * 60 + seconds;
@@ -38,7 +38,7 @@ const Timer = () => {
     setMinutes(initialTime);
     setSeconds(0);
     setIsTimerOn(false);
-    setProgress(100)
+    setProgress(100);
   }, [initialTime]);
 
   useEffect(() => {
